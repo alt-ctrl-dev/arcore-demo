@@ -6,3 +6,5 @@ Tic-Tac-Toe/Assets/GoogleVR.meta
 *.csproj
 *.sln
 *.suo
+arcore-portal/Library
+arcore-portal.userprefs
