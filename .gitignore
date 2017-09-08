@@ -8,3 +8,5 @@ Tic-Tac-Toe/Assets/GoogleVR.meta
 *.suo
 arcore-portal/Library
 arcore-portal.userprefs
+arcore-portal/Temp
+arcore-portal/obj

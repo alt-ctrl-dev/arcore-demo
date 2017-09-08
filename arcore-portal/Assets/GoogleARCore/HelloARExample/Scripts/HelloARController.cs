@@ -51,7 +51,7 @@ namespace GoogleARCore.HelloAR
 		/// </summary>
 		public GameObject m_searchingForPlaneUI;
 
-		public Text info;
+		//public Text info;
 
 		private List<TrackedPlane> m_newPlanes = new List<TrackedPlane> ();
 
@@ -86,7 +86,6 @@ namespace GoogleARCore.HelloAR
 		/// </summary>
 		public void Update ()
 		{
-			Debug.Log ("Update = "+isCreated);
 			_QuitOnConnectionErrors ();
 
 			// The tracking state must be FrameTrackingState.Tracking in order to access the Frame.
@@ -123,10 +122,9 @@ namespace GoogleARCore.HelloAR
 					break;
 				}
 			}
-			info.text = (isCreated) ? "isCreated = true" : "isCreated = false";
+			m_searchingForPlaneUI.GetComponentInChildren<Text>().text = (isCreated) ? "isCreated = true" : "isCreated = false";
 
-
-			m_searchingForPlaneUI.SetActive (showSearchingUI);
+			//m_searchingForPlaneUI.SetActive (showSearchingUI);
 
 			if (!isCreated) {
 				Touch touch;
@@ -154,10 +152,9 @@ namespace GoogleARCore.HelloAR
 					// Use a plane attachment component to maintain Andy's y-offset from the plane
 					// (occurs after anchor updates).
 					andyObject.GetComponent<PlaneAttachment> ().Attach (hit.Plane);
-					Debug.Log ("Attached Andy to plane");
-					Debug.Log ("Setting isCreated");
+
 					isCreated = true;
-					Debug.Log ("isCreated = "+isCreated);
+
 				}
 			}
 		}

@@ -190,7 +190,7 @@ MonoBehaviour:
   m_firstPersonCamera: {fileID: 989943870}
   m_trackedPlanePrefab: {fileID: 1654175882956584, guid: 6a35c744e5010405c847fad90282d2be,
     type: 2}
-  m_andyAndroidPrefab: {fileID: 1281484674786676, guid: 4223dd7b760134adf8e2f7d71503630a,
+  m_andyAndroidPrefab: {fileID: 1877956371133644, guid: 4aa809aff7e784ab89157a0da04fb4d1,
     type: 2}
   m_searchingForPlaneUI: {fileID: 1764419355}
   info: {fileID: 708990413}
@@ -297,7 +297,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1133631540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -460, z: 0}
+  m_LocalPosition: {x: 0, y: -461, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1764419356}
@@ -487,7 +487,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1608144853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1001, y: 540, z: 0}
+  m_LocalPosition: {x: 1001, y: 541, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1133631541}
