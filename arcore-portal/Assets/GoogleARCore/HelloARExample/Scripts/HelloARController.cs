@@ -205,5 +205,9 @@ namespace GoogleARCore.HelloAR
 				}));
 			}
 		}
+
+		public void SwitchPrefab(bool showAndyPrefab){
+			showAndy = showAndyPrefab;
+		}
 	}
 }
