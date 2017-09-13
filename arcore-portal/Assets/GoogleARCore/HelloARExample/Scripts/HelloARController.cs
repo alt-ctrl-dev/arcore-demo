@@ -47,6 +47,11 @@ namespace GoogleARCore.HelloAR
 		public GameObject m_andyAndroidPrefab;
 
 		/// <summary>
+		/// A model to place when a raycast from a user touch hits a plane.
+		/// </summary>
+		public GameObject m_applePrefab;
+
+		/// <summary>
 		/// A gameobject parenting UI for displaying the "searching for planes" snackbar.
 		/// </summary>
 		public GameObject m_searchingForPlaneUI;
@@ -75,10 +80,10 @@ namespace GoogleARCore.HelloAR
 			new Color (1.0f, 0.756f, 0.027f)
 		};
 
-		static bool isCreated = false;
+		private bool showAndy = false;
 
 		public void Start(){
-			isCreated = false;
+			showAndy = false;
 		}
 
 		/// <summary>
@@ -122,13 +127,13 @@ namespace GoogleARCore.HelloAR
 					break;
 				}
 			}
-			m_searchingForPlaneUI.GetComponentInChildren<Text>().text = (isCreated) ? "isCreated = true" : "isCreated = false";
+			//m_searchingForPlaneUI.GetComponentInChildren<Text>().text = (isCreated) ? "isCreated = true" : "isCreated = false";
 
-			//m_searchingForPlaneUI.SetActive (showSearchingUI);
+			m_searchingForPlaneUI.SetActive (showSearchingUI);
 
-			if (!isCreated) {
+			//if (!isCreated) {
 				Touch touch;
-				if (Input.touchCount < 1 || (touch = Input.GetTouch (0)).phase != TouchPhase.Began || isCreated) {
+				if (Input.touchCount < 1 || (touch = Input.GetTouch (0)).phase != TouchPhase.Began) {
 					return;
 				}
 				TrackableHit hit;
@@ -141,9 +146,13 @@ namespace GoogleARCore.HelloAR
 
 					// Intanstiate an Andy Android object as a child of the anchor; it's transform will now benefit
 					// from the anchor's tracking.
-					var andyObject = Instantiate (m_andyAndroidPrefab, hit.Point, Quaternion.identity,
+				GameObject andyObject;
+				if(showAndy)
+					andyObject = Instantiate (m_andyAndroidPrefab, hit.Point, Quaternion.identity,
 						                             anchor.transform);
-
+				else
+					andyObject = Instantiate (m_applePrefab, hit.Point, Quaternion.identity,
+						anchor.transform);
 					// Andy should look at the camera but still be flush with the plane.
 					andyObject.transform.LookAt (m_firstPersonCamera.transform);
 					andyObject.transform.rotation = Quaternion.Euler (0.0f,
@@ -153,10 +162,10 @@ namespace GoogleARCore.HelloAR
 					// (occurs after anchor updates).
 					andyObject.GetComponent<PlaneAttachment> ().Attach (hit.Plane);
 
-					isCreated = true;
+					//isCreated = true;
 
 				}
-			}
+			//}
 		}
 
 		/// <summary>
